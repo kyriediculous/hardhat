@@ -85,7 +85,16 @@ export function numberToRpcQuantity(n: number | BN): string {
     "Expected number"
   );
 
-  return `0x${n.toString(16)}`;
+  return bufferToRpcData(toBuffer(n))
+}
+
+export function numberToRpcData(n: number | BN): string {
+  assertHardhatInvariant(
+    typeof n === "number" || BN.isBN(n),
+    "Expected number"
+  );
+
+  return bufferToRpcData(toBuffer(n));
 }
 
 /**

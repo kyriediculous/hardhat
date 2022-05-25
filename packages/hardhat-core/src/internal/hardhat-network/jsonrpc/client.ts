@@ -5,6 +5,7 @@ import path from "path";
 
 import {
   numberToRpcQuantity,
+  numberToRpcData,
   rpcData,
   rpcQuantity,
 } from "../../core/jsonrpc/types/base-types";
@@ -57,7 +58,7 @@ export class JsonRpcClient {
       "eth_getStorageAt",
       [
         address.toString(),
-        numberToRpcQuantity(position),
+        numberToRpcData(position),
         numberToRpcQuantity(blockNumber),
       ],
       rpcData,
